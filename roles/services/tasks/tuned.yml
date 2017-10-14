@@ -1,0 +1,23 @@
+---
+- name: Start and Enable tuned
+  service:
+    name: tuned
+    state: started
+    enabled: yes
+  become: true
+
+- name: Make my tuned settings dir
+  file:
+    path: /etc/tuned/my-desktop
+    state: directory
+  become: true
+
+- name: Copy my tuned.conf
+  copy:
+    src: tuned.conf
+    dest: /etc/tuned/my-desktop/tuned.conf
+  become: true
+
+- name: Enable my tuned settings
+  command: tuned-adm profile my-desktop
+  become: true

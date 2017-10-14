@@ -1,0 +1,6 @@
+---
+- hosts: 'local'
+  roles:
+    - installations
+    # - customization/vim
+    # - customization/fish

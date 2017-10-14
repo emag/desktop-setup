@@ -1,0 +1,8 @@
+---
+- hosts: 'local'
+  roles:
+    - installations
+    - dotfiles/fish
+    - dotfiles/git
+    - dotfiles/vim
+    - services

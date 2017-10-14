@@ -1,0 +1,9 @@
+---
+- name: Add archlinxfr Repository
+  blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      [archlinuxfr]
+      SigLevel = Optional
+      Server = http://repo.archlinux.fr/$arch
+  become: true

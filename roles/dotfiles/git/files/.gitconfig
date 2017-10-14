@@ -1,0 +1,44 @@
+[user]
+  name = emag
+  email = lanabe.lanabe@gmail.com
+[color]
+  ui = auto
+[alias]
+# add
+  adda = add .
+# branch
+  br = branch
+# checkout
+  co = checkout
+# commit
+  ci = commit -m
+  cia = commit -a -m
+  cam = commit -a --amend -m
+# diff
+  di = diff
+  dm = diff master
+  dc = diff --cached
+  ds = diff --staged
+  d1 = diff HEAD~
+# log
+  ol = log --oneline
+  wc = whatchanged
+  log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+# reset
+  rsh = reset --soft HEAD
+  rsh1 = reset --soft HEAD~
+# status
+  st = status
+[core]
+  quotepath = false
+  editor = vim
+  pager = less -q -R
+[http]
+  sslverify = false
+[merge]
+  ff = false
+[github]
+  user = emag
+[pull]
+  rebase = true

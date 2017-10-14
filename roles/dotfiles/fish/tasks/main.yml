@@ -1,0 +1,9 @@
+---
+- name: Change my default shell to fish
+  user:
+    name: "{{ username }}"
+    shell: /usr/bin/fish
+  become: true
+
+- name: Copy fish settings
+  copy: src=.config/fish dest=~/.config

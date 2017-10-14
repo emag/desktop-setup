@@ -1,0 +1,5 @@
+---
+- name: Copy .vimrc
+  copy:
+    src: .vimrc
+    dest: ~/.vimrc

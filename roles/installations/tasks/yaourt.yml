@@ -1,0 +1,43 @@
+---
+- name: Install yaourt
+  pacman:
+    name: yaourt
+    state: present
+
+- name: Install Packages
+  command: yaourt -S --noconfirm --needed {{item}}
+  with_items:
+    - atom-editor-bin
+    - colordiff
+    - docker
+    - docker-compose
+    - dropbox
+    - fcitx-configtool
+    - fcitx-im
+    - fcitx-mozc
+    - fish
+    - google-chrome
+    - hexchat
+    - hub
+    - jdk8-openjdk
+    - jetbrains-toolbox
+    - jq
+    - nkf
+    - openjdk8-src
+    - otf-ipafont
+    - rbenv
+    - ruby-build
+    - skypeforlinux-bin
+    - sysstat
+    - tig
+    - tmux
+    - tmux-xpanes
+    - tuned
+    - unarchiver
+    - unzip
+    - vagrant
+    - vim
+    - virtualbox
+    - vlc
+    - wireshark-gtk
+    - zip
