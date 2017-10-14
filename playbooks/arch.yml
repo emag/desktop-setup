@@ -4,5 +4,6 @@
     - installations
     - dotfiles/fish
     - dotfiles/git
+    - dotfiles/tmux
     - dotfiles/vim
     - services
