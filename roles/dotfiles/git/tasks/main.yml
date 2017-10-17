@@ -2,4 +2,4 @@
 - name: Copy .gitconfig
   copy:
     src: .gitconfig
-    dest: ~/.gitconfig
+    dest: "{{ ansible_env.HOME }}"

@@ -2,4 +2,4 @@
 - name: Copy .tmux.conf
   copy:
     src: .tmux.conf
-    dest: ~/.tmux.conf
+    dest: "{{ ansible_env.HOME }}"
