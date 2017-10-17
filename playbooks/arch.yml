@@ -2,6 +2,7 @@
 - hosts: 'local'
   roles:
     - installations
+    - dotfiles/docker
     - dotfiles/fish
     - dotfiles/git
     - dotfiles/tmux

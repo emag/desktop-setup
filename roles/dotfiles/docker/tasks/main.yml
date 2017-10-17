@@ -1,0 +1,5 @@
+---
+- name: Copy docker settings
+  copy:
+    src: .docker
+    dest: "{{ ansible_env.HOME }}"
