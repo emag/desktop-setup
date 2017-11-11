@@ -17,5 +17,6 @@
     - gradle
     - maven
     - sbt
+    - scala
   args:
     executable: /bin/bash
