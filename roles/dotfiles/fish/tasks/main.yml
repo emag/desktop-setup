@@ -1,8 +1,28 @@
 ---
+- name: Search fish path
+  command      : which fish
+  register     : fish_path
+  ignore_errors: true
+
+- debug: msg="{{ fish_path.stdout }}"
+
+- name: Check fish path contained in /etc/shells
+  shell        : cat /etc/shells | grep "{{ fish_path.stdout }}"
+  register     : grep_shells 
+  ignore_errors: true
+
+- debug: msg="{{ grep_shells }}"
+  when: grep_shells.rc == 0
+
+- name: Append fish path in /etc/shells
+  shell: echo "{{ fish_path.stdout }}" >> /etc/shells
+  when : grep_shells.rc != 0
+  become: true
+
 - name: Change my default shell to fish
   user:
-    name: "{{ username }}"
-    shell: /usr/bin/fish
+    name : "{{ username }}"
+    shell: "{{ fish_path.stdout }}"
   become: true
 
 - name: Copy fish settings

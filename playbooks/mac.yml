@@ -1,10 +1,9 @@
 ---
 - hosts: 'local'
   roles:
-    - installations/arch
+    - installations/mac
     - dotfiles/docker
     - dotfiles/fish
     - dotfiles/git
     - dotfiles/tmux
     - dotfiles/vim
-    - services

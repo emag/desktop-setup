@@ -1,0 +1,21 @@
+---
+- name: Check if SDKMAN is installed
+  shell: test -d {{ ansible_env.HOME }}/.sdkman && echo "yes" || echo "no"
+  register: is_sdkman_installed
+  args:
+    executable: /bin/bash
+
+- name: Install SDKMAN
+  when: is_sdkman_installed.stdout == "no"
+  shell: curl -s get.sdkman.io | bash
+  args:
+    executable: /bin/bash
+
+- name: Install candidates
+  shell: source {{ ansible_env.HOME }}/.sdkman/bin/sdkman-init.sh && sdk install {{ item }}
+  with_items:
+    - gradle
+    - maven
+    - sbt
+  args:
+    executable: /bin/bash
