@@ -18,6 +18,7 @@
     - jq
     - nkf
     - mycli
+    - reattach-to-user-namespace
     - rbenv
     - ruby-build
     - tig
