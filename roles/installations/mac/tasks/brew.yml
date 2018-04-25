@@ -13,6 +13,7 @@
     state: latest
   with_items:
     - colordiff
+    - direnv
     - fish
     - hub
     - jq
@@ -42,3 +43,4 @@
     - jetbrains-toolbox
     - vagrant
     - virtualbox
+    - wireshark
