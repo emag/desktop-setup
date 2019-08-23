@@ -6,6 +6,12 @@ Setup Scripts for Desktop Environment
 
 ### Update/Upgrade OS
 
+#### Fedora
+
+``` sh
+sudo dnf -y upgrade
+```
+
 #### Arch Linux
 
 ``` sh
@@ -13,6 +19,12 @@ sudo pacman -Syyu
 ```
 
 ### Install Ansible
+
+#### Fedora
+
+``` sh
+sudo dnf -y install ansible
+```
 
 #### Arch Linux
 
@@ -29,6 +41,16 @@ brew install ansible
 ```
 
 ## Run Ansible
+
+### Fedora
+
+``` sh
+ansible-playbook playbooks/fedora.yml --ask-become-pass
+```
+
+#### Need to Install manually
+
+- [JetBrains Toolbox](https://www.jetbrains.com/toolbox/)
 
 ### Arch Linux
 

@@ -1,0 +1,60 @@
+---
+- name: Install prerequisite packages
+  dnf:
+    name:
+      - fedora-workstation-repositories
+      - dnf-plugins-core
+    state: latest
+  become: true
+
+- name: Enable Google Chrome repo
+  command: dnf config-manager --set-enabled google-chrome warn=false
+  become: true
+
+- name: Add Docker repo
+  command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo warn=false
+  become: true
+
+- name: Install Packages
+  dnf:
+    name:
+      - 'https://atom.io/download/rpm'
+      - colordiff
+      - containerd.io
+      - direnv
+      - docker-ce
+      - docker-ce-cli
+      - fish
+      - google-chrome-stable
+      - hub
+      - ibus-mozc
+      - jq
+      - tig
+      - tmux
+      - tuned
+      - vim
+      - xsel
+    state: latest
+  become: true
+
+- name: Check if SDKMAN is installed
+  shell: test -d {{ ansible_env.HOME }}/.sdkman && echo "yes" || echo "no"
+  register: is_sdkman_installed
+  args:
+    executable: /bin/bash
+
+- name: Install SDKMAN
+  when: is_sdkman_installed.stdout == "no"
+  shell: curl -s get.sdkman.io | bash
+  args:
+    executable: /bin/bash
+
+- name: Init SDKMAN
+  shell: source {{ ansible_env.HOME }}/.sdkman/bin/sdkman-init.sh
+  args:
+    executable: /bin/bash
+
+- name: Install jenv
+  git:
+    repo: https://github.com/jenv/jenv.git
+    dest: "{{ ansible_env.HOME }}/.jenv"
