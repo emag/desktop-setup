@@ -1,0 +1,5 @@
+---
+- name: Copy .inputrc
+  copy:
+    src: .inputrc
+    dest: "{{ ansible_env.HOME }}/.inputrc"

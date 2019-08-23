@@ -8,7 +8,7 @@
 
 - name: Check fish path contained in /etc/shells
   shell        : cat /etc/shells | grep "{{ fish_path.stdout }}"
-  register     : grep_shells 
+  register     : grep_shells
   ignore_errors: true
 
 - debug: msg="{{ grep_shells }}"
@@ -29,3 +29,13 @@
   copy:
     src: .config/fish
     dest: "{{ ansible_env.HOME }}/.config"
+
+- name: Install fisher
+  get_url:
+    url: https://git.io/fisher
+    dest: "{{ ansible_env.HOME }}/.config/fish/functions/fisher.fish"
+
+- name: Install SDKMAN for fish
+  shell: fisher add reitzig/sdkman-for-fish
+  args:
+    executable: "{{ fish_path.stdout }}"

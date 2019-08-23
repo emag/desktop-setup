@@ -1,0 +1,11 @@
+---
+- hosts: 'local'
+  roles:
+    - installations/fedora
+    - dotfiles/inputrc
+    - dotfiles/docker
+    - dotfiles/fish
+    - dotfiles/git
+    - dotfiles/tmux
+    - dotfiles/vim
+    - services

@@ -3,3 +3,8 @@
   copy:
     src: .tmux.conf
     dest: "{{ ansible_env.HOME }}"
+
+- name: Install tpm
+  git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
