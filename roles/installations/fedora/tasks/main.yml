@@ -58,3 +58,13 @@
   git:
     repo: https://github.com/jenv/jenv.git
     dest: "{{ ansible_env.HOME }}/.jenv"
+
+- name: Install nodenv
+  git:
+    repo: https://github.com/nodenv/nodenv.git
+    dest: "{{ ansible_env.HOME }}/.nodenv"
+
+- name: Install node-build
+  git:
+    repo: https://github.com/nodenv/node-build.git
+    dest: "{{ ansible_env.HOME }}/.nodenv/plugins/node-build"
